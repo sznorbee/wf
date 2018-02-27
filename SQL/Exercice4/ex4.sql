@@ -1,14 +1,24 @@
 ALTER TABLE person_address
-ADD CONSTRAINT pap
+ADD CONSTRAINT a
 FOREIGN KEY (Personid) 
 REFERENCES Person(id);
 
 ALTER TABLE person_address
-ADD CONSTRAINT paa
+ADD CONSTRAINT c
 FOREIGN KEY (Addressid)
 REFERENCES Address(id);
 
 ALTER TABLE person_address
-ADD CONSTRAINT paat
+ADD CONSTRAINT b
 FOREIGN KEY (Address_typeid)
 REFERENCES Address_type(id);
+
+ALTER TABLE Address
+ADD CONSTRAINT d
+FOREIGN KEY (Townid)
+REFERENCES Town (id);
+
+ALTER TABLE Address
+ADD CONSTRAINT e
+FOREIGN KEY (Townid)
+REFERENCES Town (id);
