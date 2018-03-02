@@ -1,23 +1,32 @@
 <?php
 
 //create a function with two parameter
-function divide($number, $divisor ){
+function divide(int $number, $divisor ){
     
+    //If the divisor is zero, you must throw a RuntimeException.
     if ($divisor == 0){
-        throw new RuntimeException("Divison by 0!!!");
+        throw new RuntimeException("Division by 0 is not allowed");
     }
-    return $result = $number / $divisor;
+    return $number / $divisor;
 }
 
-function arrayDivide($array, $divisor){
+
+//second function called "arrayDivide"
+function arrayDivide(array $array, $divisor){
     
-    if ($divisor == 0){
-        throw new RuntimeException("Divison by 0!!!");
-    } 
-}
+    // divison on each value of the git aarray
+    foreach ($array as $value) {
+        //catch the err.
+        
+        try {
+            $result[] = divide($value, $divisor);
+        }catch (RuntimeException $catcher){
+            $result = $value;
+        }
+       
+    }
+    return $result;
+};
 
-try {
-    arrayDivide($value, 0);
-}catch (RuntimeException $catcher){
-    return $value;
-}
+
+

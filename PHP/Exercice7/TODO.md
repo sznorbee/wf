@@ -12,6 +12,7 @@ If the divisor is zero, you must throw a RuntimeException.
 
 
 You must create a second function called "arrayDivide" that take in 
+Use the first function inside.
 
 -first parameter an array of value to divide, and in 
 -second parameter, the divisor. 
