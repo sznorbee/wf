@@ -6,9 +6,16 @@ class NotAllowedRoleException extends \RuntimeException
     public function __construct ($message = null,
                                  $code = null, 
                                  $previous = null,
-                                 $allowedLabel = [ROLE_USER, ROLE_ADMIN] //the list of allowed role label (as array)
+                                 string $label,
+                                 array $allowedLabel = [ROLE_USER, ROLE_ADMIN] //the list of allowed role label (as array)
     ) {
+        $this->a
+        $this->label = $label;
         
+        //convert array to string
+        implode(',', $allowedLabel)
+        
+        parent::__construct($message, $code, $previous);
     }
 }
 

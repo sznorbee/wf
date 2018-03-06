@@ -17,7 +17,8 @@ class Role
     
     public function __construct($label)
     {
-        $this->label = $label;
+        // it was duplication to create label ....
+        $this->setLabel = $label;
     }
     
     public function getId()
@@ -33,12 +34,14 @@ class Role
 //The Model\Role class MUST be updated to throw the exception on setting a Role label not contained in the constants.
     
     public function setLabel($label)
-    {
-        if ($label != ROLE_USER || $label != ROLE_ADMIN){
-            throw new NotAllowedRoleException();
+    {   
+        //create a variable arr
+        $allowedSet = [self::ROLE_USER, self::ROLE_ADMIN];
+        if (in_array($label,$allowedSet)){
+            $this->label = $label;
+            return $this;
         }
-        $this->label = $label;
-        return $this;
+        throw new \Model\NotAllowedRoleException();
     }
 }
 
