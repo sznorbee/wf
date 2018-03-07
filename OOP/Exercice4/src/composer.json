@@ -1,0 +1,16 @@
+{
+    "name": "norbert/composernorbert",
+    "description": "test",
+    "type": "test",
+    "require": {
+        "symfony/security": "^4.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "sznorbee",
+            "email": "norbert.szekeres@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
