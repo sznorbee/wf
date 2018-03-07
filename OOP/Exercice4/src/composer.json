@@ -12,5 +12,13 @@
             "email": "norbert.szekeres@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    
+    "autoload": {
+        "psr-4": {
+             "": "",
+             "Model\\": "Model/",
+             "Exception\\": "Exception/"
+    	}
+    }
 }
