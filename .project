@@ -5,10 +5,6 @@
 	<projects>
 	</projects>
 	<buildSpec>
-<<<<<<< HEAD
-	</buildSpec>
-	<natures>
-=======
 		<buildCommand>
 			<name>org.eclipse.wst.common.project.facet.core.builder</name>
 			<arguments>
@@ -28,6 +24,5 @@
 	<natures>
 		<nature>org.eclipse.php.core.PHPNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
->>>>>>> OOP_exercise3
 	</natures>
 </projectDescription>
