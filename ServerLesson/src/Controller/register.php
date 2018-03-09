@@ -1,4 +1,6 @@
 <?php 
+include_once __DIR__.'/init.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){ 
     
     $username = $_POST['username'] ?? null; //if username not set value is null
@@ -13,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         
         //create a connection to the database
         try{
-            $connection = new PDO('mysql:host=localhost;dbname=register', 'root');
+            $connection = Service\DBConnector::getConnection();
             
         }catch (PDOException $exception){
             http_response_code(500); //internal server error
@@ -23,7 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         //to store data on server
         $sql ="INSERT INTO user(username, password) VALUES (\"$username\", \"$password\")";
         //NOT GOOD WAY
-        $connection->exec($sql);
+        //$connection->exec($sql);
+        
+        $affected = $connection->exec($sql);
+        
+        if (!$affected){
+            echo implode(', ', $connection->errorInfo());
+        }
+            
         echo 'Store data';
         return ;
     }
@@ -39,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 <title>Register form</title>
 </head>
 <body>
-	<form action="/register.php" method="post">
+	<form  method="post">
 	
 		<?php if (!($usernameSuccess ?? true)){?>
 		<div>
@@ -59,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 		<input type="password" name="password">
 		<br>
 		
-		<label for="password_2">Retype your password:</label>
+		<label for="password_2">Retype your password:</label><br>
 		<input type="password" name="password_2">
 		<br>
 		
